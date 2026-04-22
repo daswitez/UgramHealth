@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginScreen } from '../screens/auth/LoginScreen';
 import { StudentTabs } from './StudentTabs';
 import { DoctorTabs } from './DoctorTabs';
+import { useAuth } from '../store/AuthContext';
 
 type RootStackParamList = {
   Auth: undefined;
@@ -13,11 +14,8 @@ type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-// NOTE: We simulate a state where user is not logged in initially.
-// Later we will use Context API / Zustand for global auth state.
 export const RootNavigator = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [userRole, setUserRole] = useState<'student' | 'doctor' | null>(null);
+  const { isAuthenticated, userRole } = useAuth();
 
   return (
     <NavigationContainer>
