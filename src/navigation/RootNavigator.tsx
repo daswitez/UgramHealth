@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginScreen } from '../screens/auth/LoginScreen';
 import { RegisterScreen } from '../screens/auth/RegisterScreen';
-import { StudentTabs } from './StudentTabs';
-import { DoctorTabs } from './DoctorTabs';
+import { StudentNavigator } from './StudentNavigator';
+import { DoctorNavigator } from './DoctorNavigator';
 import { useAuth } from '../store/AuthContext';
 
 export type RootStackParamList = {
@@ -28,9 +28,9 @@ export const RootNavigator = () => {
             <Stack.Screen name="Register" component={RegisterScreen} />
           </>
         ) : userRole === 'student' ? (
-          <Stack.Screen name="StudentApp" component={StudentTabs} />
+          <Stack.Screen name="StudentApp" component={StudentNavigator} />
         ) : (
-          <Stack.Screen name="DoctorApp" component={DoctorTabs} />
+          <Stack.Screen name="DoctorApp" component={DoctorNavigator} />
         )}
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,5 +1,7 @@
-import React from 'react';
-import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StudentStackParamList } from '../../navigation/StudentNavigator';
 import { Text } from '../../components/ui/Text';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
@@ -9,6 +11,7 @@ import { useAuth } from '../../store/AuthContext';
 
 export const StudentDashboardScreen = () => {
   const { logout } = useAuth();
+  const navigation = useNavigation<NativeStackNavigationProp<StudentStackParamList>>();
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -28,16 +31,18 @@ export const StudentDashboardScreen = () => {
           <Text variant="body" color={colors.textSecondary} style={styles.cardDetails}>
             Dra. Maria López • Mañana, 09:30 AM
           </Text>
-          <Button title="Ver detalles" onPress={() => {}} />
+          <Button title="Ver detalles" onPress={() => navigation.navigate('StudentAppointmentDetail')} />
         </Card>
 
         {/* ACCESO RÁPIDO */}
         <View style={styles.section}>
           <Text variant="h2" style={styles.sectionTitle}>Acciones Rápidas</Text>
-          <Card style={styles.actionCard}>
-            <Text variant="body" style={styles.actionTitle}>Reservar nueva ficha</Text>
-            <Text variant="label">Medicina general, laboratorios, certificados.</Text>
-          </Card>
+          <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Booking')}>
+            <Card style={styles.actionCard}>
+              <Text variant="body" style={styles.actionTitle}>Reservar nueva ficha</Text>
+              <Text variant="label">Medicina general, laboratorios, certificados.</Text>
+            </Card>
+          </TouchableOpacity>
         </View>
 
         {/* EXÁMENES Y RESULTADOS */}

@@ -6,9 +6,13 @@ import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
 import { colors } from '../../theme/colors';
 import { useAuth } from '../../store/AuthContext';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { DoctorStackParamList } from '../../navigation/DoctorNavigator';
 
 export const DoctorDashboardScreen = () => {
   const { logout } = useAuth();
+  const navigation = useNavigation<NativeStackNavigationProp<DoctorStackParamList>>();
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -29,7 +33,7 @@ export const DoctorDashboardScreen = () => {
           <Text variant="body" color={colors.textSecondary} style={styles.cardDetails}>
             Medicina General • Control de rutina
           </Text>
-          <Button title="Abrir ficha clínica" onPress={() => {}} />
+          <Button title="Abrir ficha clínica" onPress={() => navigation.navigate('AppointmentDetail')} />
         </Card>
 
         {/* LISTA ESCANEABLE DE AGENDA (Regla Médico) */}

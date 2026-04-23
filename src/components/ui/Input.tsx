@@ -24,11 +24,12 @@ export const Input: React.FC<InputProps> = ({
       
       <View style={[
         styles.inputContainer,
+        props.multiline && styles.multilineContainer,
         isFocused && styles.inputFocused,
         error && styles.inputError,
       ]}>
         <TextInput
-          style={[styles.input, style]}
+          style={[styles.input, props.multiline && styles.multilineInput, style]}
           placeholderTextColor={colors.textSecondary}
           onFocus={(e) => {
             setIsFocused(true);
@@ -64,6 +65,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     justifyContent: 'center',
   },
+  multilineContainer: {
+    minHeight: 120,
+    alignItems: 'flex-start',
+    paddingVertical: 16,
+  },
   inputFocused: {
     borderColor: colors.primary,
   },
@@ -75,6 +81,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
     fontSize: 16,
     color: colors.text,
+  },
+  multilineInput: {
+    textAlignVertical: 'top', // critical for Android
   },
   errorText: {
     marginTop: 4,
