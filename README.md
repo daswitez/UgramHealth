@@ -1,62 +1,35 @@
-# UAGRM Medical App
+# 🏥 Ugram Health - App Móvil Estudiantil
+_Solución Frontend Integral para el Seguro Universitario FUSUM de la UAGRM._
 
-Aplicación móvil orientada a la comunidad de la Universidad Autónoma Gabriel René Moreno (UAGRM) que facilita y centraliza la atención médica a través de una experiencia fluida, rápida y moderna.
+Esta aplicación en React Native (Expo) es la cara visible de la revolución del Seguro Social Estudiantil. Elimina las barreras burocráticas de ir a sacar "fichas de papel" y le entrega al alumno universitario un panel estético, veloz y clínico en su bolsillo.
 
-## 👥 Ámbito y Roles Principales
+## 📱 Funcionalidades y Flujos Críticos
 
-La aplicación maneja un modelo de **Roles**, centralizando el flujo de trabajo tanto de los pacientes como del personal de la salud.
+Desarrollada tras intensos Sprints Ágiles, la app tiene dualidad:
 
-1. **Estudiante (Paciente):** 
-   - Objetivo: Resolver su atención sin fricción.
-   - Funciones: Reserva rápida de fichas, chequeo de seguimiento, visualización de resultados de exámenes médicos y notificaciones.
-2. **Médico:**
-   - Objetivo: Realizar consultas y llevar un control ágil.
-   - Funciones: Visualización de la agenda diaria en segundos, apertura y registro de fichas clínicas en un flujo claro, programación de seguimientos y remisión de exámenes.
+1. **Flujo Paciente (Estudiante UAGRM):** 
+   - Reserva de fichas dinámicas con doctores y especialidades.
+   - Centro de notificaciones in-app.
+   - Expediente descargable de Laboratorio (PDF).
+   - "Tratamientos Activos" y un letal "Botón S.O.S Rojo" de evacuación al teléfono.
+2. **Flujo Clínico (Médicos y Secretarias):**
+   - Agenda hiper-veloz blindada.
+   - Atajos anti-demandas médicas: Bandera roja intrusiva de "Alergias/Crónicas" obligatoria de leer.
+   - Walk-in express: Búsqueda rápida por número de registro universitario.
+   - Seguridad anti-cierres: Auto-Save persistente asíncrono para recetas (`AsyncStorage`).
 
-## 💻 Tech Stack
+## 🛠️ Tecnologías y Despliegue
 
-Esta aplicación está orientada a una experiencia móvil multiplataforma rápida:
-- **Framework:** [React Native](https://reactnative.dev) + [Expo](https://expo.dev) 
-- **Lenguaje:** [TypeScript](https://www.typescriptlang.org) (Para tipado fuerte, evitando errores de lógica en el frontend).
-- **Navegador:** React Navigation (Usando Tab y Native Stack Navigators).
-- **Gestión de estado:** Context API y hooks (o herramientas de estado cliente/servidor según escale. Ej. React Query para manejar fetch caching de las citas y médicos).
+Diseñada con pautas UI propias (`Swiss Modernism 2.0`), sin librerías invasivas.
 
-## 🎨 Principios de Diseño y UX
-Basado en un enfoque **Mobile First** donde la acción principal es evidente:
-- **Espacio y Limpieza:** Se prefiere el uso de amplio espacio en blanco y bordes suaves (Radius 16 a 24).
-- **Tipografía:** [Inter] con fuerte jerarquía.
-- **Micro Interacciones:** Evitar dependencias visuales artificiales (Glow, 3D Tilt), usando interfaces sólidas fundamentadas en el modelo *Swiss Modernism 2.0*. 
-- **Colores Semánticos Principales:** 
-  - Primary: Azul (`#2563EB`)
-  - Accent: Teal (`#0EA5A4`)
-  - Neutros: Fondos `#F8FAFC`, Superficies `#FFFFFF` y Textos en `#0F172A` o `#64748B`.
-
----
-
-## 🚀 Cómo Correr el Proyecto (Expo)
-
-Asegúrate de estar posicionado en la carpeta principal del proyecto (`ugramApp`) y tener Node.js instalado.
-
-**1. Instalar dependencias** (Si acabas de clonar el repositorio)
-```bash
+\`\`\`bash
+# 1. Instalar el ecosistema
 npm install
-```
 
-**2. Iniciar el servidor de desarrollo local**
-```bash
+# 2. Correr localmente (Metro Bundler)
 npx expo start
-```
-*(También puedes usar el atajo `npm start`)*
 
-Una vez iniciado el servidor, aparecerá un **código QR** en tu terminal. 
-- **En Android:** Instala la aplicación `Expo Go` desde la Play Store y escanea el código QR directamente usando el botón dentro de Expo Go.
-- **En iOS (iPhone):** Instala `Expo Go` desde la App Store, abre la aplicación nativa de **Cámara** en tu teléfono, y escanea el código QR; este te abrirá una notificación para lanzar la app en Expo Go.
-
-**Otras opciones para correr:**
-- Presiona `a` en la terminal para abrirlo en el **Emulador de Android** (Requiere Android Studio corriendo).
-- Presiona `i` en la terminal para abrirlo en el **Simulador de iOS** (Requiere macOS con Xcode).
-- Presiona `w` para abrir el entorno en **Versión Web**.
-
----
-
-*Para ver el orden de prioridad en el desarrollo, consultar el archivo [`BACKLOG.md`](./BACKLOG.md). Para información técnica detallada ir a [`ARCHITECTURE_AND_STANDARDS.md`](./ARCHITECTURE_AND_STANDARDS.md).*
+# 3. Empaquetar a binarios nativos
+eas build --profile preview --platform android
+eas build --profile production --platform ios
+\`\`\`
