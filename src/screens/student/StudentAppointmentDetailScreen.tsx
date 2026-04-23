@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, SafeAreaView, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StudentStackParamList } from '../../navigation/StudentNavigator';
@@ -13,6 +13,24 @@ type NavigationProp = NativeStackNavigationProp<StudentStackParamList, 'StudentA
 
 export const StudentAppointmentDetailScreen = () => {
   const navigation = useNavigation<NavigationProp>();
+
+  const handleCancelClick = () => {
+    Alert.alert(
+      "Cancelar Ficha",
+      "¿Estás seguro que deseas cancelar tu revisión de Medicina General? Esta acción no se puede deshacer.",
+      [
+        { text: "No, mantener cita", style: "cancel" },
+        { 
+          text: "Sí, cancelar", 
+          style: "destructive",
+          onPress: () => {
+            // Fake cancel execution then nav back
+            navigation.popToTop();
+          }
+        }
+      ]
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -39,12 +57,17 @@ export const StudentAppointmentDetailScreen = () => {
           </View>
         </Card>
 
-        {/* CANCELLATION DEMO */}
+        {/* CANCELLATION AND RESCHEDULE DEMO */}
         <View style={styles.actions}>
           <Button 
-            title="Cancelar Ficha (Mock)" 
+            title="Reprogramar (Mock)" 
+            onPress={() => navigation.navigate('Booking', { isReschedule: true })} 
+          />
+          <View style={styles.spacing} />
+          <Button 
+            title="Cancelar Ficha Segura" 
             variant="secondary"
-            onPress={() => navigation.popToTop()} 
+            onPress={handleCancelClick} 
           />
         </View>
 
@@ -85,4 +108,7 @@ const styles = StyleSheet.create({
   actions: {
     marginTop: 'auto',
   },
+  spacing: {
+    height: 16,
+  }
 });

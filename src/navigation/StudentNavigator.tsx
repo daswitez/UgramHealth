@@ -6,7 +6,7 @@ import { StudentAppointmentDetailScreen } from '../screens/student/StudentAppoin
 
 export type StudentStackParamList = {
   StudentTabsHome: undefined;
-  Booking: undefined;
+  Booking: { isReschedule?: boolean } | undefined;
   StudentAppointmentDetail: undefined;
 };
 
@@ -22,12 +22,12 @@ export const StudentNavigator = () => {
       <Stack.Screen 
         name="Booking" 
         component={BookingScreen} 
-        options={{ headerShown: true, title: 'Nueva Reserva' }}
+        options={{ headerShown: true, title: 'Nueva Reserva', headerBackTitle: 'Inicio' }}
       />
       <Stack.Screen 
         name="StudentAppointmentDetail" 
         component={StudentAppointmentDetailScreen} 
-        options={{ headerShown: true, title: 'Mi Ficha Médica' }}
+        options={{ headerShown: true, title: 'Mi Ficha Médica', headerBackTitle: 'Inicio' }}
       />
     </Stack.Navigator>
   );

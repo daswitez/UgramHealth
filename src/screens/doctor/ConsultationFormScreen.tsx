@@ -70,10 +70,10 @@ export const ConsultationFormScreen = () => {
               onPress={handleSave} 
             />
             <Button 
-              title="Añadir Examen (Mock)" 
+              title="Prescribir Examen" 
               variant="secondary"
               style={styles.secondaryBtn}
-              onPress={() => {}} 
+              onPress={() => navigation.navigate('OrderLabTest')} 
             />
           </View>
 

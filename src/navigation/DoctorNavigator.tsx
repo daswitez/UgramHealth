@@ -3,11 +3,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DoctorTabs } from './DoctorTabs';
 import { AppointmentDetailScreen } from '../screens/doctor/AppointmentDetailScreen';
 import { ConsultationFormScreen } from '../screens/doctor/ConsultationFormScreen';
+import { OrderLabTestScreen } from '../screens/doctor/OrderLabTestScreen';
 
 export type DoctorStackParamList = {
   DoctorTabsHome: undefined;
   AppointmentDetail: undefined; // We'd pass patient IDs in a real app
   ConsultationForm: undefined;
+  OrderLabTest: undefined;
 };
 
 const Stack = createNativeStackNavigator<DoctorStackParamList>();
@@ -22,12 +24,17 @@ export const DoctorNavigator = () => {
       <Stack.Screen 
         name="AppointmentDetail" 
         component={AppointmentDetailScreen} 
-        options={{ headerShown: true, title: 'Contexto de Atención' }}
+        options={{ headerShown: true, title: 'Contexto de Atención', headerBackTitle: 'Inicio' }}
       />
       <Stack.Screen 
         name="ConsultationForm" 
         component={ConsultationFormScreen} 
-        options={{ headerShown: true, title: 'Ficha Clínica' }}
+        options={{ headerShown: true, title: 'Ficha Clínica', headerBackTitle: 'Volver' }}
+      />
+      <Stack.Screen 
+        name="OrderLabTest" 
+        component={OrderLabTestScreen} 
+        options={{ headerShown: true, title: 'Generar Orden Médica', headerBackTitle: 'Ficha' }}
       />
     </Stack.Navigator>
   );
