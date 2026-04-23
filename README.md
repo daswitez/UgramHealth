@@ -32,4 +32,31 @@ Basado en un enfoque **Mobile First** donde la acción principal es evidente:
   - Neutros: Fondos `#F8FAFC`, Superficies `#FFFFFF` y Textos en `#0F172A` o `#64748B`.
 
 ---
+
+## 🚀 Cómo Correr el Proyecto (Expo)
+
+Asegúrate de estar posicionado en la carpeta principal del proyecto (`ugramApp`) y tener Node.js instalado.
+
+**1. Instalar dependencias** (Si acabas de clonar el repositorio)
+```bash
+npm install
+```
+
+**2. Iniciar el servidor de desarrollo local**
+```bash
+npx expo start
+```
+*(También puedes usar el atajo `npm start`)*
+
+Una vez iniciado el servidor, aparecerá un **código QR** en tu terminal. 
+- **En Android:** Instala la aplicación `Expo Go` desde la Play Store y escanea el código QR directamente usando el botón dentro de Expo Go.
+- **En iOS (iPhone):** Instala `Expo Go` desde la App Store, abre la aplicación nativa de **Cámara** en tu teléfono, y escanea el código QR; este te abrirá una notificación para lanzar la app en Expo Go.
+
+**Otras opciones para correr:**
+- Presiona `a` en la terminal para abrirlo en el **Emulador de Android** (Requiere Android Studio corriendo).
+- Presiona `i` en la terminal para abrirlo en el **Simulador de iOS** (Requiere macOS con Xcode).
+- Presiona `w` para abrir el entorno en **Versión Web**.
+
+---
+
 *Para ver el orden de prioridad en el desarrollo, consultar el archivo [`BACKLOG.md`](./BACKLOG.md). Para información técnica detallada ir a [`ARCHITECTURE_AND_STANDARDS.md`](./ARCHITECTURE_AND_STANDARDS.md).*

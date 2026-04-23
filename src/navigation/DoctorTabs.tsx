@@ -12,7 +12,7 @@ export const DoctorTabs = () => {
       tabBarInactiveTintColor: colors.textSecondary,
       headerShown: true,
     }}>
-      <Tab.Screen name=\"DoctorHome\" component={DoctorDashboardScreen} options={{ title: 'Agenda' }} />
+      <Tab.Screen name="DoctorHome" component={DoctorDashboardScreen} options={{ title: 'Agenda' }} />
       {/* TODO: Add Alertas, Perfil */}
     </Tab.Navigator>
   );

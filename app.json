@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tmp_expo_init",
-    "slug": "tmp_expo_init",
+    "name": "uniHealth",
+    "slug": "uniHealth",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

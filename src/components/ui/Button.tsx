@@ -46,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
         <ActivityIndicator color={textColor} />
       ) : (
         <Text
-          variant=\"body\"
+          variant="body"
           style={[styles.text, { color: textColor }]}
         >
           {title}

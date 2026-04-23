@@ -15,46 +15,46 @@ export const StudentDashboardScreen = () => {
       <ScrollView contentContainerStyle={styles.container}>
         
         <View style={styles.header}>
-          <Text variant=\"label\">Hola, Estudiante</Text>
-          <Text variant=\"h2\">¿Qué necesitas hoy?</Text>
+          <Text variant="label">Hola, Estudiante</Text>
+          <Text variant="h2">¿Qué necesitas hoy?</Text>
         </View>
 
         {/* PRÓXIMA ACCIÓN: Acción Principal Inmediata (Regla UX) */}
         <Card elevated style={styles.highlightCard}>
           <View style={styles.cardHeader}>
-            <Text variant=\"h2\" style={{ fontSize: 18 }}>Control General</Text>
-            <Badge label=\"Confirmada\" status=\"success\" />
+            <Text variant="h2" style={{ fontSize: 18 }}>Control General</Text>
+            <Badge label="Confirmada" status="success" />
           </View>
-          <Text variant=\"body\" color={colors.textSecondary} style={styles.cardDetails}>
+          <Text variant="body" color={colors.textSecondary} style={styles.cardDetails}>
             Dra. Maria López • Mañana, 09:30 AM
           </Text>
-          <Button title=\"Ver detalles\" onPress={() => {}} />
+          <Button title="Ver detalles" onPress={() => {}} />
         </Card>
 
         {/* ACCESO RÁPIDO */}
         <View style={styles.section}>
-          <Text variant=\"h2\" style={styles.sectionTitle}>Acciones Rápidas</Text>
+          <Text variant="h2" style={styles.sectionTitle}>Acciones Rápidas</Text>
           <Card style={styles.actionCard}>
-            <Text variant=\"body\" style={styles.actionTitle}>Reservar nueva ficha</Text>
-            <Text variant=\"label\">Medicina general, laboratorios, certificados.</Text>
+            <Text variant="body" style={styles.actionTitle}>Reservar nueva ficha</Text>
+            <Text variant="label">Medicina general, laboratorios, certificados.</Text>
           </Card>
         </View>
 
         {/* EXÁMENES Y RESULTADOS */}
         <View style={styles.section}>
-          <Text variant=\"h2\" style={styles.sectionTitle}>Resultados Recientes</Text>
+          <Text variant="h2" style={styles.sectionTitle}>Resultados Recientes</Text>
           <Card style={styles.actionCard}>
             <View style={styles.cardHeader}>
-              <Text variant=\"body\" style={styles.actionTitle}>Hemograma</Text>
-              <Badge label=\"Disponible\" status=\"info\" />
+              <Text variant="body" style={styles.actionTitle}>Hemograma</Text>
+              <Badge label="Disponible" status="info" />
             </View>
-            <Text variant=\"label\">Hace 2 días</Text>
+            <Text variant="label">Hace 2 días</Text>
           </Card>
         </View>
 
         {/* TEMPORAL LOGOUT */}
         <View style={styles.footer}>
-           <Button title=\"Cerrar sesión (Test)\" variant=\"secondary\" onPress={logout} />
+           <Button title="Cerrar sesión (Test)" variant="secondary" onPress={logout} />
         </View>
 
       </ScrollView>

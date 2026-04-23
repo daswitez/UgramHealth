@@ -1,30 +1,20 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { Text } from '../../components/ui/Text';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
-import { useAuth } from '../../store/AuthContext';
 import { colors } from '../../theme/colors';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/RootNavigator';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-export const LoginScreen = () => {
-  const { login } = useAuth();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Register'>;
+
+export const RegisterScreen = () => {
+  const navigation = useNavigation<NavigationProp>();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleLogin = (role: 'student' | 'doctor') => {
-    if (!email || !password) {
-      setError('Por favor, ingresa tus credenciales.');
-      return;
-    }
-    // Simulate API call
-    setError('');
-    login(role);
-  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -36,16 +26,22 @@ export const LoginScreen = () => {
           <View style={styles.container}>
             
             <View style={styles.header}>
-              <Text variant="h1" align="center" style={styles.title}>Ugrand Health</Text>
+              <Text variant="h1" align="center" style={styles.title}>Crear Cuenta</Text>
               <Text variant="body" align="center" color={colors.textSecondary}>
-                Portal Universitario de Salud
+                Únete a la plataforma de Ugrand Health
               </Text>
             </View>
 
             <View style={styles.form}>
               <Input
-                label="Correo institucional o Usuario"
-                placeholder="Ej. 200012345"
+                label="Nombre completo"
+                placeholder="Ej. Juan Pérez"
+                value={name}
+                onChangeText={setName}
+              />
+              <Input
+                label="Correo Institucional"
+                placeholder="Ej. juan.perez@uagrm.edu.bo"
                 value={email}
                 onChangeText={setEmail}
                 autoCapitalize="none"
@@ -56,39 +52,29 @@ export const LoginScreen = () => {
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
-                error={error}
               />
 
-              <View style={styles.loginActions}>
+              <View style={styles.registerActions}>
                 <Button 
-                  title="Ingresar como Estudiante" 
-                  onPress={() => handleLogin('student')} 
-                />
-                <View style={styles.spacing} />
-                <Button 
-                  title="Ingresar como Médico" 
-                  variant="secondary"
-                  onPress={() => handleLogin('doctor')} 
-                />
-              </View>
-
-              <View style={styles.registerContainer}>
-                <Text variant="label" align="center">
-                  ¿No tienes una cuenta creada? 
-                </Text>
-                <Button 
-                  title="Regístrate aquí" 
-                  variant="secondary"
-                  style={styles.registerButton}
-                  onPress={() => navigation.navigate('Register')} 
+                  title="Crear mi cuenta" 
+                  onPress={() => {
+                    // Registration Mock
+                    navigation.goBack();
+                  }} 
                 />
               </View>
             </View>
 
             <View style={styles.footer}>
               <Text variant="label" align="center">
-                ¿Necesitas ayuda con tu acceso? Contacta a soporte técnico.
+                ¿Ya tienes una cuenta?
               </Text>
+              <Button 
+                title="Volver a Iniciar Sesión" 
+                variant="secondary"
+                style={styles.backButton}
+                onPress={() => navigation.goBack()} 
+              />
             </View>
 
           </View>
@@ -112,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
-    marginBottom: 48,
+    marginBottom: 40,
     alignItems: 'center',
   },
   title: {
@@ -122,25 +108,19 @@ const styles = StyleSheet.create({
   form: {
     marginBottom: 32,
   },
-  loginActions: {
+  registerActions: {
     marginTop: 24,
-  },
-  spacing: {
-    height: 16,
-  },
-  registerContainer: {
-    marginTop: 32,
-    paddingTop: 24,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-  },
-  registerButton: {
-    marginTop: 16,
-    borderWidth: 0, 
-    backgroundColor: colors.primaryLight,
   },
   footer: {
     marginTop: 'auto',
     marginBottom: 24,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    paddingTop: 24,
   },
+  backButton: {
+    marginTop: 16,
+    borderWidth: 0,
+    backgroundColor: colors.primaryLight,
+  }
 });

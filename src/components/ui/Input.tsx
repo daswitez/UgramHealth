@@ -20,7 +20,7 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <View style={styles.container}>
-      {label && <Text variant=\"label\" style={styles.label}>{label}</Text>}
+      {label && <Text variant="label" style={styles.label}>{label}</Text>}
       
       <View style={[
         styles.inputContainer,
@@ -42,7 +42,7 @@ export const Input: React.FC<InputProps> = ({
         />
       </View>
       
-      {error && <Text variant=\"label\" color={colors.error} style={styles.errorText}>{error}</Text>}
+      {error && <Text variant="label" color={colors.error} style={styles.errorText}>{error}</Text>}
     </View>
   );
 };

@@ -15,53 +15,53 @@ export const DoctorDashboardScreen = () => {
       <ScrollView contentContainerStyle={styles.container}>
         
         <View style={styles.header}>
-          <Text variant=\"label\">Dr. Roberto Carlos</Text>
-          <Text variant=\"h2\">Agenda del Día</Text>
+          <Text variant="label">Dr. Roberto Carlos</Text>
+          <Text variant="h2">Agenda del Día</Text>
         </View>
 
         {/* SIGUIENTE PACIENTE */}
         <Card elevated style={styles.highlightCard}>
           <View style={styles.cardHeader}>
-            <Text variant=\"label\">Siguiente en atender: 08:30 AM</Text>
-            <Badge label=\"En sala\" status=\"warning\" />
+            <Text variant="label">Siguiente en atender: 08:30 AM</Text>
+            <Badge label="En sala" status="warning" />
           </View>
-          <Text variant=\"h2\" style={styles.patientName}>Juan Pérez Gómez</Text>
-          <Text variant=\"body\" color={colors.textSecondary} style={styles.cardDetails}>
+          <Text variant="h2" style={styles.patientName}>Juan Pérez Gómez</Text>
+          <Text variant="body" color={colors.textSecondary} style={styles.cardDetails}>
             Medicina General • Control de rutina
           </Text>
-          <Button title=\"Abrir ficha clínica\" onPress={() => {}} />
+          <Button title="Abrir ficha clínica" onPress={() => {}} />
         </Card>
 
         {/* LISTA ESCANEABLE DE AGENDA (Regla Médico) */}
         <View style={styles.section}>
-          <Text variant=\"h2\" style={styles.sectionTitle}>Próximas Citas</Text>
+          <Text variant="h2" style={styles.sectionTitle}>Próximas Citas</Text>
           
           <Card style={styles.agendaCard}>
             <View style={styles.agendaRow}>
-              <Text variant=\"body\" style={styles.agendaTime}>09:00 AM</Text>
+              <Text variant="body" style={styles.agendaTime}>09:00 AM</Text>
               <View style={styles.agendaInfo}>
-                <Text variant=\"body\">María Fernández</Text>
-                <Text variant=\"label\">Certificado Médico</Text>
+                <Text variant="body">María Fernández</Text>
+                <Text variant="label">Certificado Médico</Text>
               </View>
-              <Badge label=\"Pendiente\" status=\"info\" />
+              <Badge label="Pendiente" status="info" />
             </View>
           </Card>
 
           <Card style={styles.agendaCard}>
             <View style={styles.agendaRow}>
-              <Text variant=\"body\" style={styles.agendaTime}>09:30 AM</Text>
+              <Text variant="body" style={styles.agendaTime}>09:30 AM</Text>
               <View style={styles.agendaInfo}>
-                <Text variant=\"body\">Carlos Ortiz</Text>
-                <Text variant=\"label\">Revisión de Exámenes</Text>
+                <Text variant="body">Carlos Ortiz</Text>
+                <Text variant="label">Revisión de Exámenes</Text>
               </View>
-              <Badge label=\"Pendiente\" status=\"info\" />
+              <Badge label="Pendiente" status="info" />
             </View>
           </Card>
         </View>
 
         {/* TEMPORAL LOGOUT */}
         <View style={styles.footer}>
-           <Button title=\"Cerrar sesión (Test)\" variant=\"secondary\" onPress={logout} />
+           <Button title="Cerrar sesión (Test)" variant="secondary" onPress={logout} />
         </View>
 
       </ScrollView>

@@ -12,7 +12,7 @@ export const StudentTabs = () => {
       tabBarInactiveTintColor: colors.textSecondary,
       headerShown: true,
     }}>
-      <Tab.Screen name=\"StudentHome\" component={StudentDashboardScreen} options={{ title: 'Inicio' }} />
+      <Tab.Screen name="StudentHome" component={StudentDashboardScreen} options={{ title: 'Inicio' }} />
       {/* TODO: Add Reservas, Examenes, Avisos, Perfil */}
     </Tab.Navigator>
   );
