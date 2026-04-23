@@ -4,12 +4,14 @@ import { DoctorTabs } from './DoctorTabs';
 import { AppointmentDetailScreen } from '../screens/doctor/AppointmentDetailScreen';
 import { ConsultationFormScreen } from '../screens/doctor/ConsultationFormScreen';
 import { OrderLabTestScreen } from '../screens/doctor/OrderLabTestScreen';
+import { EmergencyWalkInScreen } from '../screens/doctor/EmergencyWalkInScreen';
 
 export type DoctorStackParamList = {
   DoctorTabsHome: undefined;
   AppointmentDetail: undefined; // We'd pass patient IDs in a real app
   ConsultationForm: undefined;
   OrderLabTest: undefined;
+  EmergencyWalkIn: undefined;
 };
 
 const Stack = createNativeStackNavigator<DoctorStackParamList>();
@@ -35,6 +37,11 @@ export const DoctorNavigator = () => {
         name="OrderLabTest" 
         component={OrderLabTestScreen} 
         options={{ headerShown: true, title: 'Generar Orden Médica', headerBackTitle: 'Ficha' }}
+      />
+      <Stack.Screen 
+        name="EmergencyWalkIn" 
+        component={EmergencyWalkInScreen} 
+        options={{ headerShown: true, title: 'Buscador de Estudiantes', headerBackTitle: 'Agenda' }}
       />
     </Stack.Navigator>
   );

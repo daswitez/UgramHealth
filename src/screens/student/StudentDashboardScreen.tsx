@@ -1,4 +1,5 @@
-import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StudentStackParamList } from '../../navigation/StudentNavigator';
@@ -33,6 +34,37 @@ export const StudentDashboardScreen = () => {
           </Text>
           <Button title="Ver detalles" onPress={() => navigation.navigate('StudentAppointmentDetail')} />
         </Card>
+
+        {/* SOS BUTTON (HU-14) */}
+        <TouchableOpacity 
+          activeOpacity={0.8} 
+          onPress={() => Linking.openURL('tel:112')}
+          style={styles.sosCard}
+        >
+          <View style={styles.sosIconCircle}>
+            <Text variant="h2" style={{color: '#FFF'}}>📞</Text>
+          </View>
+          <View style={{flex: 1, marginLeft: 16}}>
+            <Text variant="h2" style={{color: '#B91C1C'}}>Emergencia en Campus</Text>
+            <Text variant="label" style={{color: '#991B1B', marginTop: 4}}>Servicio de ambulancia FUSUM</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* TRATAMIENTOS ACTIVOS (HU-13) */}
+        <View style={styles.section}>
+          <Text variant="body" style={styles.sectionTitle}>Tratamientos Activos</Text>
+          <Card style={styles.treatmentCard}>
+            <View style={styles.treatmentRow}>
+              <View style={styles.pillIcon}>
+                <Text>💊</Text>
+              </View>
+              <View style={{flex: 1, marginLeft: 12}}>
+                <Text variant="body" style={styles.treatmentName}>Ibuprofeno 400mg</Text>
+                <Text variant="label" color={colors.textSecondary}>Tomar 1 cada 8 horas por 3 días</Text>
+              </View>
+            </View>
+          </Card>
+        </View>
 
         {/* ACCESO RÁPIDO */}
         <View style={styles.section}>

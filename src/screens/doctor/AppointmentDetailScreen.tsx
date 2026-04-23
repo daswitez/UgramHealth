@@ -35,6 +35,21 @@ export const AppointmentDetailScreen = () => {
           <Badge label="Esperando en Sala" status="warning" />
         </View>
 
+        {/* MEDICAL ALERTS SECTION */}
+        <View style={styles.alertContainer}>
+          <View style={styles.alertHeader}>
+            <Text variant="h2" style={styles.alertTitle}>! Alertas Médicas</Text>
+          </View>
+          <View style={styles.alertRow}>
+            <Badge label="Crónico" status="error" />
+            <Text variant="body" style={styles.alertDesc}>Asma Bronquial Severa</Text>
+          </View>
+          <View style={styles.alertRow}>
+            <Badge label="Alergia" status="error" />
+            <Text variant="body" style={styles.alertDesc}>Penicilina (Choque Anafiláctico)</Text>
+          </View>
+        </View>
+
         <Card style={styles.infoCard}>
           <View style={styles.dataRow}>
             <Text variant="label" style={styles.dataLabel}>Edad</Text>
@@ -87,6 +102,30 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 4,
     marginBottom: 12,
+  },
+  alertContainer: {
+    backgroundColor: '#FEF2F2', // Red 50
+    padding: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#FCCCA7', // Red 200 equivalent
+    marginBottom: 24,
+  },
+  alertHeader: {
+    marginBottom: 12,
+  },
+  alertTitle: {
+    color: '#DC2626', // Red 600
+    fontSize: 16,
+  },
+  alertRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  alertDesc: {
+    marginLeft: 12,
+    fontFamily: 'Inter-Medium',
   },
   infoCard: {
     marginBottom: 32,

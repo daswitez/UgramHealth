@@ -25,6 +25,10 @@ export const BookingScreen = () => {
   const route = useRoute<BookingRouteProp>();
   const isReschedule = route.params?.isReschedule || false;
 
+  const handleAddToCalendar = () => {
+    Alert.alert("Calendario Sincronizado", "La cita se añadió a tu calendario local para enviarte recordatorios nativos.");
+  };
+
   const [selectedSpecialty, setSelectedSpecialty] = useState<string | null>(null);
   const [selectedDoctor, setSelectedDoctor] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -163,8 +167,15 @@ export const BookingScreen = () => {
                   {isReschedule ? '¡Cita Reprogramada!' : '¡Ficha Confirmada!'}
                 </Text>
                 <Text variant="body" color={colors.textSecondary} align="center">
-                  Te avisaremos horas antes de tu atención.
+                  Anota la fecha y llega 15 minutos antes.
                 </Text>
+                
+                <Button 
+                  title="Añadir a Google/Apple Calendar" 
+                  variant="secondary"
+                  style={{marginTop: 16, width: '100%', borderColor: '#CBD5E1'}}
+                  onPress={handleAddToCalendar}
+                />
               </>
             )}
           </View>

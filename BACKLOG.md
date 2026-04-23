@@ -67,3 +67,22 @@ _Cierre de experiencia del usuario en la parte general._
 
 - [ ] **HU-11 & HU-M09:** Centro de notificaciones. Bandeja para alertas "Cita Cancelada", "Resultado cargado", "Control pendiente".
 - [ ] **HU-12 & HU-M10:** Perfiles. Vistas básicas de configuración, información personal, contacto técnico y sign-out.
+
+---
+
+## 🏃 Sprint 7: Seguridad Clínica Avanzada (P1.5)
+_Mecanismos indispensables para convertir la app en un entorno médico y legal seguro._
+
+- [ ] **HU-M11:** Alertas Médicas Inmediatas. Sistema de `Badges` prominentes en el perfil del paciente con "Alergias a Medicamentos" y "Enfermedades Crónicas".
+- [ ] **HU-M12:** Prevención de Pérdida de Datos (Auto-Save). Lógica en `ConsultationFormScreen` que use almacenamiento local (AsyncStorage) para guardar borradores si la app se cierra bruscamente.
+- [ ] **HU-M13:** Creación Extraordinaria de Citas. Botón rápido e "Búsqueda de Estudiante por Registro" en el Dashboard Médico para aceptar visitas no-agendadas (Walk-ins/Emergencias).
+
+---
+
+## 🏃 Sprint 8: Calidad de Vida (UX) y Retención (P2.5)
+_Reducción de vacíos para consolidar la imagen institucional en el Estudiante._
+
+- [ ] **HU-13:** Visualización de Recetarios. Nueva sección o menú para que el paciente vea posología y recetas emitidas (Tratamientos) con claridad para presentarlo en farmacia.
+- [ ] **HU-14:** Botón S.O.S Universitario. Línea rápida de conexión telefónica interna para llamar a triaje UAGRM dentro del Dashboard Estudiantil.
+- [ ] **HU-15:** Cohesión de Empty States. Diseñar layouts específicos compuestos de SVGs (Illustraciones limpias) cuando el calendario, los exámenes o las notificaciones se encuentren vacíos.
+- [ ] **HU-16:** Integración Calendario. Botón de Exportación "Add to Google/iOS Calendar" post-reserva de ficha médica.

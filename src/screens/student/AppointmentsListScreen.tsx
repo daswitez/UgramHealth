@@ -12,6 +12,10 @@ type NavigationProp = NativeStackNavigationProp<StudentStackParamList>;
 
 export const AppointmentsListScreen = () => {
   const navigation = useNavigation<NavigationProp>();
+  
+  // Toggle to empty to demonstrate empty state
+  const UPCOMING_APPOINTMENTS: any[] = []; 
+  const PAST_APPOINTMENTS: any[] = []; 
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -24,46 +28,58 @@ export const AppointmentsListScreen = () => {
           </Text>
         </View>
 
-        <View style={styles.section}>
-          <Text variant="body" style={styles.sectionTitle}>Citas Próximas</Text>
-          
-          <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('StudentAppointmentDetail')}>
-            <Card style={styles.appointmentCard}>
-              <View style={styles.cardTopRow}>
-                <Badge label="Confirmada" status="success" />
-                <Text variant="label">Mañana, 09:30 AM</Text>
-              </View>
-              <Text variant="body" style={styles.headline}>Control General</Text>
-              <Text variant="label" color={colors.textSecondary}>Dra. Maria López • FUSUM</Text>
-            </Card>
-          </TouchableOpacity>
-        </View>
+        {UPCOMING_APPOINTMENTS.length === 0 && PAST_APPOINTMENTS.length === 0 ? (
+          <View style={styles.emptyState}>
+            <Text variant="h1" style={styles.emptyIcon}>📂</Text>
+            <Text variant="h2" style={styles.emptyTitle}>Sin Actividad Reciente</Text>
+            <Text variant="body" color={colors.textSecondary} style={styles.emptyDesc}>
+              Actualmente no tienes consultas agendadas ni historial registrado.
+            </Text>
+          </View>
+        ) : (
+          <>
+            <View style={styles.section}>
+              <Text variant="body" style={styles.sectionTitle}>Citas Próximas</Text>
+              
+              <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('StudentAppointmentDetail')}>
+                <Card style={styles.appointmentCard}>
+                  <View style={styles.cardTopRow}>
+                    <Badge label="Confirmada" status="success" />
+                    <Text variant="label">Mañana, 09:30 AM</Text>
+                  </View>
+                  <Text variant="body" style={styles.headline}>Control General</Text>
+                  <Text variant="label" color={colors.textSecondary}>Dra. Maria López • FUSUM</Text>
+                </Card>
+              </TouchableOpacity>
+            </View>
 
-        <View style={styles.section}>
-          <Text variant="body" style={styles.sectionTitle}>Historial Pasado</Text>
-          
-          <TouchableOpacity activeOpacity={1}>
-            <Card style={styles.pastAppointmentCard}>
-              <View style={styles.cardTopRow}>
-                <Badge label="Atendida" status="info" />
-                <Text variant="label">Hace 2 meses</Text>
-              </View>
-              <Text variant="body" style={styles.pastHeadline}>Consulta Odontológica</Text>
-              <Text variant="label" color={colors.textSecondary}>Limpieza General</Text>
-            </Card>
-          </TouchableOpacity>
-          
-          <TouchableOpacity activeOpacity={1}>
-            <Card style={styles.pastAppointmentCard}>
-              <View style={styles.cardTopRow}>
-                <Badge label="Cancelada" status="error" />
-                <Text variant="label">Hace 4 meses</Text>
-              </View>
-              <Text variant="body" style={[styles.pastHeadline, {textDecorationLine: 'line-through'}]}>Medicina General</Text>
-              <Text variant="label" color={colors.textSecondary}>Ausencia reportada</Text>
-            </Card>
-          </TouchableOpacity>
-        </View>
+            <View style={styles.section}>
+              <Text variant="body" style={styles.sectionTitle}>Historial Pasado</Text>
+              
+              <TouchableOpacity activeOpacity={1}>
+                <Card style={styles.pastAppointmentCard}>
+                  <View style={styles.cardTopRow}>
+                    <Badge label="Atendida" status="info" />
+                    <Text variant="label">Hace 2 meses</Text>
+                  </View>
+                  <Text variant="body" style={styles.pastHeadline}>Consulta Odontológica</Text>
+                  <Text variant="label" color={colors.textSecondary}>Limpieza General</Text>
+                </Card>
+              </TouchableOpacity>
+              
+              <TouchableOpacity activeOpacity={1}>
+                <Card style={styles.pastAppointmentCard}>
+                  <View style={styles.cardTopRow}>
+                    <Badge label="Cancelada" status="error" />
+                    <Text variant="label">Hace 4 meses</Text>
+                  </View>
+                  <Text variant="body" style={[styles.pastHeadline, {textDecorationLine: 'line-through'}]}>Medicina General</Text>
+                  <Text variant="label" color={colors.textSecondary}>Ausencia reportada</Text>
+                </Card>
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
 
       </ScrollView>
     </SafeAreaView>
@@ -117,5 +133,29 @@ const styles = StyleSheet.create({
   pastHeadline: {
     fontFamily: 'Inter-Medium',
     marginBottom: 4,
+  },
+  emptyState: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 32,
+    marginTop: 20,
+    backgroundColor: colors.surfaceHover,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderStyle: 'dashed',
+  },
+  emptyIcon: {
+    fontSize: 48,
+    marginBottom: 16,
+    opacity: 0.8,
+  },
+  emptyTitle: {
+    marginBottom: 8,
+    color: colors.textBase,
+  },
+  emptyDesc: {
+    textAlign: 'center',
+    lineHeight: 22,
   }
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { Text } from '../../components/ui/Text';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
@@ -22,6 +22,14 @@ export const DoctorDashboardScreen = () => {
           <Text variant="label">Dr. Roberto Carlos</Text>
           <Text variant="h2">Agenda del Día</Text>
         </View>
+
+        {/* EMERGENCY WALK-IN */}
+        <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('EmergencyWalkIn')}>
+          <View style={styles.emergencyCard}>
+            <Text variant="h2" style={{color: '#B91C1C'}}>🏥 Urgencia / Walk-in</Text>
+            <Text variant="body" style={{color: '#991B1B', marginTop: 4}}>Registrar paciente no agendado.</Text>
+          </View>
+        </TouchableOpacity>
 
         {/* SIGUIENTE PACIENTE */}
         <Card elevated style={styles.highlightCard}>
@@ -90,6 +98,15 @@ const styles = StyleSheet.create({
     marginBottom: 32,
     borderLeftWidth: 4,
     borderLeftColor: colors.primary, // Indicador visual clínico
+  },
+  emergencyCard: {
+    backgroundColor: '#FEF2F2',
+    padding: 20,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#FCA5A5',
+    marginBottom: 32,
+    alignItems: 'center',
   },
   cardHeader: {
     flexDirection: 'row',
