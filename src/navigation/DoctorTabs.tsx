@@ -1,6 +1,8 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DoctorDashboardScreen } from '../screens/doctor/DoctorDashboardScreen';
+import { NotificationsScreen } from '../screens/shared/NotificationsScreen';
+import { ProfileScreen } from '../screens/shared/ProfileScreen';
 import { colors } from '../theme/colors';
 
 const Tab = createBottomTabNavigator();
@@ -13,7 +15,8 @@ export const DoctorTabs = () => {
       headerShown: true,
     }}>
       <Tab.Screen name="DoctorHome" component={DoctorDashboardScreen} options={{ title: 'Agenda' }} />
-      {/* TODO: Add Alertas, Perfil */}
+      <Tab.Screen name="DoctorNotifications" component={NotificationsScreen} options={{ title: 'Avisos' }} />
+      <Tab.Screen name="DoctorProfile" component={ProfileScreen} options={{ title: 'Perfil' }} />
     </Tab.Navigator>
   );
 };
